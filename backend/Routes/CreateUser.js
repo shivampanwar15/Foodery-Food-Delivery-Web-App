@@ -4,7 +4,8 @@ const User = require('../models/User')
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
-const jwtSecret = "MynameisEndtoEndYouTubeChannel$#";
+
+
 router.post("/createuser",
 
     body('password').isLength({ min: 5 }),
@@ -52,7 +53,7 @@ router.post("/loginuser",
                 const data = {
                       user:  {id : userData.id}
                     }
-                    const authToken = jwt.sign(data, jwtSecret);
+                    const authToken = jwt.sign(data, process.env.JWTSECRET_KEY);
                     return res.json({ success: true , authToken:authToken});
                     }
 

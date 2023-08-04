@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge';
 import Modal from '../Modal';
@@ -7,12 +7,13 @@ import Login from '../screens/Login'
 import Signup from '../screens/Signup'
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useCart } from './ContextReducer'
+import { FaMapMarkerAlt } from "react-icons/fa";
 export default function Navbar(props) {
   let data = useCart();
   const [cartView, setCartView] = useState(false);
   const [loginView, setLoginView] = useState(false);
   const [signupView, setSignupView] = useState(false);
-
+  const [address, setAddress]  = useState("Loading...");
 
 
   const navigate = useNavigate();
@@ -21,6 +22,46 @@ export default function Navbar(props) {
     localStorage.removeItem("authToken");
     navigate("/");
   }
+  
+
+  const Fetch_Location = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+  console.log(latitude,longitude)
+        // Replace 'YOUR_API_KEY' with your actual Google Maps API key
+        //const apiKey = 'YOUR_API_KEY';
+        const apiUrl = `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`;
+  
+        // Make the API request
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            if(data){
+                setAddress(data.display_name)
+              
+            }
+            else{
+              address = "Unable to Locate"
+              console.log(address)
+            }
+              
+          })
+          .catch((error) => {
+            console.error('Error fetching address:', error);
+          });
+      },
+      (error) => {
+        console.error('Error fetching location:', error.message);
+      }
+    );
+  };
+
+  useEffect(() => {
+    Fetch_Location();
+}, [])
+
+  
 
 
   return (
@@ -36,14 +77,16 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto ">
               <li className="nav-item">
-                <Link className="btn btn-outline-dark mx-1"  aria-current="page" to="/">Home</Link>
+                <Link className="btn btn-outline-dark py-2 px-2 mx-2"  aria-current="page" to="/">Home</Link>
               </li>
               {(localStorage.getItem("authToken")) ?
                 <li className="nav-item">
-                  <Link className="nav-link active fs-6 border rounded border-dark mx-2" aria-current="page" to="/myOrder">My Orders</Link>
+                  <Link className="btn btn-outline-dark py-2 px-2 mx-2" aria-current="page" to="/myOrder">My Orders</Link>
                 </li> : ""}
 
 
+
+                <span className='py-2 mx-5'><FaMapMarkerAlt/> {address}</span>
 
             </ul>
 
@@ -52,7 +95,9 @@ export default function Navbar(props) {
 
                 <div className="btn btn-outline-dark mx-1" onClick={() => { setLoginView(true) }}>Login</div>
                 {loginView ? <Modal onClose={() => setLoginView(false)}>
-                  <Login></Login>
+                  <Login>
+                  
+                  </Login>
 
                 </Modal> : null}
 

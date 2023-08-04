@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Home from './screens/Home';
 import {
@@ -27,6 +28,8 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/createuser" element={<Signup />} />
             <Route exact path= "/myOrder" element={ <MyOrder />}/>
+            <Route exact path= "/success" element={ <MyOrder/>}/>
+            <Route exact path= "/cancel" element={ <Home/>}/>
           </Routes>
         </div>
       </Router>

@@ -74,6 +74,7 @@ export default function Card(props) {
                         <div className='d-inline h-100 fs-5 d-flex justify-content-center'> ₹ {finalPrice}/- </div>
                     </div>
                     <hr></hr>
+                   
                     <button className='btn btn-outline-success m5-2' onClick={handleAddToCart}> Add to Cart </button>
                 </div>
             </div>
