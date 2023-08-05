@@ -8,7 +8,7 @@
      "start": "node index.js",
      
   },
-  "author": "",
+  "author": "me",
   "license": "ISC",
   "dependencies": {
    
