@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "-": "^0.0.1",
+   
     "@babel/plugin-transform-regenerator": "7.4.4",
     "bcrypt": "^5.1.0",
 
