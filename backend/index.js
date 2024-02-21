@@ -12,7 +12,7 @@ dotenv.config({
 
 const app = express()
 const port = process.env.PORT;
-const connectToMongo = require('./db')
+import connectToMongo from './db.js'
 connectToMongo();
 
 app.use(cors());
