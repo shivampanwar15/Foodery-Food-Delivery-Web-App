@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+//require('dotenv').config()
+const express = require('express')
+const app = express()
+const port = 3000
+const connectToMongo = require('./db')
+connectToMongo();
+>>>>>>> d1f65f931d4e8d1ffa0bbf6c44783eed7e1b403e
 
 import dotenv from "dotenv"
 import cors from 'cors';
