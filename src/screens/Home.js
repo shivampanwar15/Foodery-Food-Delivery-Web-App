@@ -10,7 +10,7 @@ export default function Home() {
 
     const loadData = async () => {
        
-        let response = await fetch(`${REACT_APP_DOMAIN}/foodData`, {
+        let response = await fetch(`${process.env.REACT_APP_DOMAIN}/foodData`, {
             method: "POST",
            // mode:'no-cors',
             headers: {
