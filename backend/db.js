@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
-const mongoURI = process.env.MONGO_STRING;
+import mongoose from 'mongoose' ;
 const connectToMongo = async () => {
     mongoose.set("strictQuery", false);
-    await mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
+    await mongoose.connect(process.env.MONGO_STRING, { useNewUrlParser: true }, async (err, result) => {
         if (err) console.log("---", err)
         else {
             console.log("connected");
@@ -14,8 +13,10 @@ const connectToMongo = async () => {
 
                     if (err) console.log(err);
                     else {
+                        
                         global.food_items = FoodData;
                         global.food_category  = CatData;
+                     
                     }
            
 
@@ -26,4 +27,4 @@ const connectToMongo = async () => {
     })
 }
 
-module.exports = connectToMongo;
+export default connectToMongo;

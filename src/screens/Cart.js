@@ -34,7 +34,7 @@ export default function Cart() {
     const stripePromise = await loadStripe(process.env.REACT_APP_PUBLIC_KEY);
   
     try {
-      let response = await fetch(`${process.env.REACT_APP_DOMAIN}/create-checkout-session`, {
+      let response = await fetch(`${REACT_APP_DOMAIN}/create-checkout-session`, {
         method: 'POST',
      
         headers: {

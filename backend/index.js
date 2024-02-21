@@ -1,23 +1,28 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
-const port = 3000
-const connectToMongo = require('./db')
-connectToMongo();
 
-app.use((req, res , next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
-    res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
+import dotenv from "dotenv"
+import cors from 'cors';
+import express from 'express';
+import createUserRouter from "./Routes/CreateUser.js";
+import DisplayData from "./Routes/DisplayData.js";
+import OrderData from "./Routes/OrdersData.js";
+
+dotenv.config({
+  path: './.env'
 })
 
+const app = express()
+const port = 3000
+
+import connectToMongo from './db.js'
+
+connectToMongo();
+
+app.use(cors());
+
 app.use(express.json())
-app.use('/api' , require("./Routes/CreateUser"))
-app.use('/api' , require("./Routes/DisplayData"))
-app.use('/api' , require("./Routes/OrdersData"))
+app.use('/api' , createUserRouter)
+app.use('/api' , DisplayData)
+app.use('/api' , OrderData)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

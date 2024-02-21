@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Order = require("../models/Orders");
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+import Order from '../models/Orders.js';
+import stripe from 'stripe';
+
 
 
 
@@ -34,28 +36,37 @@ router.post('/create-checkout-session', async (req, res) => {
             cancel_url: `${process.env.YOUR_DOMAIN}/cancel`,
         }
 
-        const session = await stripe.checkout.sessions.create(params);
-      //  console.log(session.id);
+        try {
+            const session = await stripe(process.env.STRIPE_SECRET_KEY).checkout.sessions.create(params);
+            console.log(session);
+            let data = req.body[1]
+            await data.order_data.splice(0, 0, { Order_date: req.body[1].order_date })
+    
+            let eId = await Order.findOne({ 'email': req.body[1].email })
+    
+        
+    
+            if (eId === null) {
+                await Order.create({
+                    email: data.email,
+                    order_data: [data.order_data]
+                });
+            } else {
+                await Order.findOneAndUpdate(
+                    { email: data.email },
+                    { $push: { order_data: data.order_data } }
+                );
+            }
+            res.status(200).json({ success: true, sessionId: session.id });
 
-        let data = req.body[1]
-        await data.order_data.splice(0, 0, { Order_date: req.body[1].order_date })
-
-        let eId = await Order.findOne({ 'email': req.body[1].email })
-
-        //console.log(eId)
-
-        if (eId === null) {
-            await Order.create({
-                email: data.email,
-                order_data: [data.order_data]
-            });
-        } else {
-            await Order.findOneAndUpdate(
-                { email: data.email },
-                { $push: { order_data: data.order_data } }
-            );
+        } catch (error) {
+            res.status(err.statusCode || 500).json({ error: err.message });
+            
         }
-        res.status(200).json({ success: true, sessionId: session.id });
+       
+      
+
+      
     } 
     catch (err) {
         res.status(err.statusCode || 500).json({ error: err.message });
@@ -76,7 +87,7 @@ router.post('/myOrderData', async (req, res) => {
 });
 
 
-module.exports = router;
+export default router;
 
 
 

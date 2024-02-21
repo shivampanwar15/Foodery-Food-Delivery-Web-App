@@ -10,7 +10,7 @@ export default function Home() {
 
     const loadData = async () => {
        
-        let response = await fetch(`${process.env.REACT_APP_DOMAIN}/foodData`, {
+        let response = await fetch(`${REACT_APP_DOMAIN}/foodData`, {
             method: "POST",
            // mode:'no-cors',
             headers: {
@@ -18,6 +18,7 @@ export default function Home() {
             }
         });
         response = await response.json();
+        
         setFoodItem(response[0]);
         setFoodCat(response[1]);
 
@@ -40,13 +41,13 @@ export default function Home() {
 
                     </div>
                     <div className="carousel-item active">
-                        <img src="https://source.unsplash.com/random/900x900?biryani" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
+                        <img src="https://source.unsplash.com/random/300x300?biryani" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x900?pizza" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
+                        <img src="https://source.unsplash.com/random/300x300?pizza" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x900?rice" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
+                        <img src="https://source.unsplash.com/random/300x300?rice" className="d-block w-100" alt="..." style={{ filter: "brightness(60%)" }} />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

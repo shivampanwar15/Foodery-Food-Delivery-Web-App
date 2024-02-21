@@ -37,6 +37,7 @@ export default function Navbar(props) {
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
+            console.log(data);
             if(data){
                 setAddress(data.display_name)
               

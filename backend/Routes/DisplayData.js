@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express';
 const router = express.Router();
 
 router.post('/foodData', (req,res)=>{
@@ -19,4 +19,4 @@ router.post('/foodData', (req,res)=>{
 
 })
 
-module.exports = router;
+export default router;
