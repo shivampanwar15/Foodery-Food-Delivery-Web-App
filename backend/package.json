@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+    "start": "node index.js"
   },
   "author": "me",
   "license": "ISC",
@@ -20,7 +20,6 @@
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.10.0",
-    "nodemon": "^2.0.22",
     "stripe": "^12.17.0"
   }
 }
