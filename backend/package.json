@@ -6,22 +6,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "start": "node index.js"
-=======
-     "start": "node index.js"    
->>>>>>> d1f65f931d4e8d1ffa0bbf6c44783eed7e1b403e
   },
   "author": "me",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-transform-regenerator": "7.4.4",
     "bcrypt": "^5.1.0",
-<<<<<<< HEAD
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-=======
->>>>>>> d1f65f931d4e8d1ffa0bbf6c44783eed7e1b403e
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "express-validator": "^6.15.0",
@@ -30,5 +23,4 @@
     "nodemon": "^2.0.22",
     "stripe": "^12.17.0"
   }
-
 }
