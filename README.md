@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Foodery 2023 - Online Food Ordering Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Project Link   : https://foodery-food-delivery-web-app.vercel.app/
 
-## Available Scripts
 
-In the project directory, you can run:
+Welcome to Foodery 2023, a scalable online food ordering web application designed to provide a seamless and delightful user experience. This project showcases the integration of ReactJs and NodeJs, along with other cutting-edge technologies, to create a feature-rich application for ordering food online.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Menu Browsing:** Explore a wide variety of delicious dishes with an easy-to-navigate menu.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Item Selection:** Choose your favorite items from the menu and customize them according to your preferences.
 
-### `npm test`
+- **Cart Management:** Conveniently manage your selected items in the cart, allowing for easy review and modification.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Online Payments:** Enable secure online transactions using the Stripe API, ensuring end-to-end encryption for a safe and reliable payment experience.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend:**
+  - React.js: Leveraged to build an intuitive and responsive user interface.
+  - Bootstrap: Utilized for styling and creating a visually appealing design.
+  - JSX: Employed for seamless integration of HTML within JavaScript.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Backend:**
+  - Node.js: Used for server-side scripting and handling backend operations.
+  - Express.js: Implemented to simplify the development of the backend.
+  - MongoDB: Chosen as the database to store and manage application data.
+  - Mongoose: An ODM (Object Data Modeling) library for MongoDB, optimizing database operations.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Payment Integration:**
+  - Stripe API: Integrated for secure and efficient online payment processing.
 
-### `npm run eject`
+## Architecture
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Foodery 2023 focuses on the Single Page Application (SPA) architecture, ensuring a smooth and engaging user experience by eliminating page reloads and providing a more dynamic interface.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/foodery-2023.git
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
+   ```bash
+   cd foodery-2023
+   npm install
+   ```
 
-## Learn More
+3. Run the application:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Open your browser and navigate to `http://localhost:3000` to explore Foodery 2023.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
