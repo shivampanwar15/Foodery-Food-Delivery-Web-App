@@ -84,7 +84,7 @@ export default function Home() {
                                 }
                             </div>
                         )
-                    }) : <div>"------"</div>
+                    }) : <div>Please wait for few seconds. Backend take some time to load </div>
 
 
                     }
