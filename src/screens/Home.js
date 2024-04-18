@@ -80,7 +80,7 @@ export default function Home() {
                                                 ></Card>
                                             </div>
                                         )
-                                    }):<div> _</div>
+                                    }):<div>Please wait 1-2 minutes to load backed. Free instances spin down after periods of inactivity</div>
                                 }
                             </div>
                         )
